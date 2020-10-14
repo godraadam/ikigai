@@ -3,4 +3,5 @@
     <color name="colorPrimary">#AFAFAF</color>
     <color name="colorPrimaryDark">#2B2B2B</color>
     <color name="colorAccent">#9C27B0</color>
+    <color name="colorVisitedCountry">#4CAF50</color>
 </resources>
