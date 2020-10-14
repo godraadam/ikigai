@@ -6,9 +6,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:screenOrientation="sensorLandscape"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:hardwareAccelerated="false">
         <activity android:name="dev.godraadam.ikigai.android.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
