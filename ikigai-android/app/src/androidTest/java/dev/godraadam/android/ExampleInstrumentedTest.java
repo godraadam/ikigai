@@ -1,4 +1,4 @@
-package dev.godraadam.ikigai_android;
+package dev.godraadam.android;
 
 import android.content.Context;
 
