@@ -9,14 +9,24 @@ public class Visit extends BaseModel {
     @DatabaseField(canBeNull = false)
     private String country;
 
-    @DatabaseField(canBeNull = false)
     private Date date;
+
+    @DatabaseField(canBeNull = false)
+    private String dateString;
 
     @DatabaseField
     private String comment;
 
     public String getCountry() {
         return country;
+    }
+
+    public Visit() {}
+
+    public Visit(String country) {
+        this.country = country;
+        date = new Date();
+        dateString = date.toString();
     }
 
     public void setCountry(String country) {

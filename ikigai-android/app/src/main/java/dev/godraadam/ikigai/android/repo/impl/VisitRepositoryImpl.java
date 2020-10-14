@@ -21,8 +21,8 @@ public class VisitRepositoryImpl extends BaseRepositoryImpl<Visit> implements Vi
         super(Visit.class);
         try {
             DatabaseHelper databaseHelper = DatabaseHelper.getInstance(context);
-            Dao<Visit, Long> userProfileDao = databaseHelper.getVisitDao();
-            super.setDao(userProfileDao);
+            Dao<Visit, Long> visitDao = databaseHelper.getVisitDao();
+            super.setDao(visitDao);
         } catch (SQLException e) {
             String msg = "Failed to initialize VisitRepository";
             Log.e(TAG, msg);
