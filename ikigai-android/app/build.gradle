@@ -38,5 +38,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.tarek360.RichPath:animator:0.1.1'
     implementation 'com.otaliastudios:zoomlayout:1.8.0'
+    implementation 'com.j256.ormlite:ormlite-core:4.48'
+    implementation 'com.j256.ormlite:ormlite-android:4.48'
 
 }

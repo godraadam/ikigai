@@ -1,0 +1,38 @@
+#
+# generated on 2020/10/14 06:12:05
+#
+# --table-start--
+dataClass=dev.godraadam.ikigai.android.model.BaseModel
+tableName=basemodel
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+indexName=basemodel_id_idx
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=dev.godraadam.ikigai.android.model.Visit
+tableName=visit
+# --table-fields-start--
+# --field-start--
+fieldName=country
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=date
+canBeNull=false
+# --field-end--
+# --field-start--
+fieldName=comment
+# --field-end--
+# --field-start--
+fieldName=id
+generatedId=true
+indexName=visit_id_idx
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
