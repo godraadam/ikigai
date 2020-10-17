@@ -1,0 +1,1 @@
+insert into ikigai_user (user_name, pass_word, email) values ("godraadam", "asdfgh", "g.a@dev.com");
