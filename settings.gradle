@@ -8,3 +8,7 @@
  */
 
 rootProject.name = 'ikigai'
+
+include 'ikigai-server'
+include 'ikigai-common'
+
