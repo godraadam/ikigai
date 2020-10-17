@@ -1,4 +1,4 @@
-package dev.godraadam.ikigai;
+package dev.godraadam.ikigai.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
