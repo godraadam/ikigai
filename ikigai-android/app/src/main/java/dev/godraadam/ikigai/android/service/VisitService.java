@@ -23,4 +23,8 @@ public class VisitService {
     public void addVisitedCountry(Visit visit) {
         visitRepository.save(visit);
     }
+
+    public void deleteAll() {
+        visitRepository.deleteAll();
+    }
 }
