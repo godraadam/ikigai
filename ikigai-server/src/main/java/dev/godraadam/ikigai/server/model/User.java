@@ -4,8 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,7 +20,8 @@ public class User extends BaseModel {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
+    @Column
+    @ManyToMany
 	private List<Visit> visits;
 
     /**

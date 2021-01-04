@@ -3,7 +3,6 @@ package dev.godraadam.ikigai.server.api.assembler;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import dev.godraadam.ikigai.common.dto.VisitDTO;
@@ -12,8 +11,6 @@ import dev.godraadam.ikigai.server.model.Visit;
 @Component
 public class VisitAssembler implements BaseAssembler<Visit, VisitDTO> {
 
-    @Autowired
-    private UserAssembler userAssembler;
 
     @Override
     public VisitDTO createDto(Visit m) {
@@ -25,7 +22,6 @@ public class VisitAssembler implements BaseAssembler<Visit, VisitDTO> {
         visitDTO.setCountry(m.getCountry());
         visitDTO.setDate(new SimpleDateFormat("dd/MM/yyyy").format(m.getDate()));
         visitDTO.setDescription(m.getDescription());
-        visitDTO.setUser(userAssembler.createDto(m.getUser()));
         return visitDTO;
     }
 
@@ -42,6 +38,8 @@ public class VisitAssembler implements BaseAssembler<Visit, VisitDTO> {
     public Visit updateModel(Visit m, VisitDTO d) {
         if (m != null) {
             m.setId(d.getId());
+            m.setCountry(d.getCountry());
+            m.setDescription(d.getDescription());
             try {
                 m.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(d.getDate()));
             } catch (ParseException e) {

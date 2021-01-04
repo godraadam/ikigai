@@ -4,18 +4,11 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity 
 @Table
 public class Visit extends BaseModel {
-    
-    @ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "USER_ID")
-    private User user;
 
     @Column
     private String country;
@@ -26,19 +19,6 @@ public class Visit extends BaseModel {
     @Column
     private Date date;
 
-    /**
-     * @return the user
-     */
-    public User getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     /**
      * @return the country

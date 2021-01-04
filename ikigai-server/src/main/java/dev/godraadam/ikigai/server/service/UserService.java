@@ -8,12 +8,16 @@ import org.springframework.stereotype.Service;
 import dev.godraadam.ikigai.server.model.User;
 import dev.godraadam.ikigai.server.model.Visit;
 import dev.godraadam.ikigai.server.repo.UserRepository;
+import dev.godraadam.ikigai.server.repo.VisitRepository;
 
 @Service
 public class UserService extends BaseService<User> {
 
     @Autowired 
     private UserRepository userRepository;
+
+    @Autowired
+    private VisitRepository visitRepository;
 
     public User getUserByName(String userName) {
         return userRepository.findByUserName(userName);
@@ -32,6 +36,7 @@ public class UserService extends BaseService<User> {
             return null;
         }
         user.getVisits().add(visit);
+        visitRepository.save(visit);
         return userRepository.save(user);
     }
 

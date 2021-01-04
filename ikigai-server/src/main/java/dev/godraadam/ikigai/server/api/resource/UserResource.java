@@ -50,6 +50,7 @@ public class UserResource {
     }
 
     @PostMapping("/api/user/register")
+    @ResponseBody
     public HttpStatus registerUser(@RequestBody UserRegisterDTO userDTO) {
         User user = userRegisterAssembler.createModel(userDTO);
         User returnedUser = userService.registerUser(user);
@@ -59,8 +60,9 @@ public class UserResource {
         return HttpStatus.OK;
     }
     
-    @PostMapping("/api/user/name/{userName}")
-    public HttpStatus saveVisitForUser(@PathVariable String userName, @RequestBody VisitDTO visitDTO) {
+    @PostMapping("/api/user/visit/{name}")
+    @ResponseBody
+    public HttpStatus saveVisitForUser(@PathVariable("name") String userName, @RequestBody VisitDTO visitDTO) {
         
         User user = userService.getUserByName(userName);
         Visit visit = visitAssembler.createModel(visitDTO);

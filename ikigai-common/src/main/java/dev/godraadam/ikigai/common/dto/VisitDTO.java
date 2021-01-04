@@ -5,7 +5,6 @@ public class VisitDTO extends BaseDTO {
     private String country;
     private String description;
     private String date;
-    private UserDTO user;
 
     /**
      * @return the country
@@ -48,19 +47,4 @@ public class VisitDTO extends BaseDTO {
     public void setDate(String date) {
         this.date = date;
     }
-
-    /**
-     * @return the user
-     */
-    public UserDTO getUser() {
-        return user;
-    }
-
-    /**
-     * @param user the user to set
-     */
-    public void setUser(UserDTO user) {
-        this.user = user;
-    }
-
 }
