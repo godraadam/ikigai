@@ -19,6 +19,7 @@ public class UserAssembler implements BaseAssembler<User, UserDTO> {
 		}
 		UserDTO userDTO = new UserDTO();
 		userDTO.setId(m.getId());
+		userDTO.setUserName(m.getUserName());
 		userDTO.setVisits(visitAssembler.createDTOList(m.getVisits()));
 		return userDTO;
     }
