@@ -4,6 +4,4 @@ var get_started_button = document.getElementById("done_button");
 
 welcome_text.innerHTML = "Welcome " + user.userName + ".";
 
-get_started_button.addEventListener('click', (e) => {
-    window.location.href = '../html/main.html'
-});
+
