@@ -1,4 +1,4 @@
->Software Engineering project, documentation
+>Software Engineering final project, documentation. Team: Godra Adam, Benedek Balazs
 
 # Introduction
 
@@ -66,9 +66,12 @@ This application is meant to connect travel-minded people from around the world.
 # Analysis
 
 <div style="text-align:center">
-<img src = "./ucd.png">
-Communication with the server is carried out via JSON represented objects
+<img src = "./ucd.png"><br>
+Use case diagram of the system
+<img src = "./deploy.svg">
+Deployment diagram of the system
 </div>
+
 
 ## The domain layer
 
@@ -129,8 +132,10 @@ Communication with the server is carried out via JSON represented objects
 
 ## Data structures, algorithms, design patterns
 
-### Data structures
+### Recommendation system
+>**Note:** Not yet implemented, only researched feature.
 
+We attempt to implement a recommendation system based on past preferences of the user. For this we apply an **MDP** (*Markov Decision Process*) based model, in which each state corresponds to a few previously visited countries (only a few, in order to reduce the state space). As a transition function we ought to figure out how likely it is for a given user to visit another country, for which we need a large input sample data (which we do not have, and would require a large amount of time to create our own). Lastly, we need a reward function for each state transition, which would correspond to how satisfied the user is with any given recommendation. From there on, serving a relevant recommendation would be simply to solve the MDP at hand. See [this paper](https://www.jmlr.org/papers/volume6/shani05a/shani05a.pdf) for full information.
 
 ### Design patterns
 
@@ -168,14 +173,23 @@ Code implementation of the Visit class
 
 <div style="text-align:center">
 <img src = "./repo.svg">
+UML class diagram of the repo package
+<img src = "./userrepo.svg"><br>
+Source code of UserRepository. Note that the implementation of these methods is handled by Spring
+<img src = "./visitrepository.svg"><br>
+Source code of VisitRepository. CRUD operations are inherited from generic super interface and implemented automatically for the specific types.
 </div>
 
 ## API Layer
 
-> Again, as with the repository layer, the heavy work is passed on to the the Spring framework. It comes with a 'built-in' web server, namely Tomcat, which is automatically started with the application, and the web app is automatically deployed to the web server. We only to need to specify the REST API endpoints as functions denoted with the proper annotations, within a class marked as `@RestController`. These controller classes form the `ikigai.server.api.resource` repository. There is another repository within `ikigai.server.api`, the `assembler` package. This package contains classes responsible for the conversion between model and data transfer objects (see above).
+> Again, as with the repository layer, the heavy work is passed on to the Spring framework. It comes with a 'built-in' web server, namely Tomcat, which is automatically started with the application, and the web app is automatically deployed to the web server. We only to need to specify the REST API endpoints as functions denoted with the proper annotations, within a class marked as `@RestController`. These controller classes form the `ikigai.server.api.resource` repository. There is another repository within `ikigai.server.api`, the `assembler` package. This package contains classes responsible for the conversion between model and data transfer objects (see above).
 
 <div style="text-align:center">
 <img src = "./api.svg">
+<img src = "./userresource.svg"><br>
+UserResource source code
+<img src = "./visitresource.svg"><br>
+VisitResource source code
 </div>
 
 ## Service Layer
