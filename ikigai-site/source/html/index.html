@@ -5,10 +5,53 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
       <title>Minimal Responsive Navigation | HTML & CSS</title>
-      <link rel="stylesheet" href="../css/master.css">
+      <link rel="stylesheet" href="../css/index.css">
+	  <link href="../../map-svg/dist/svgMap.css" rel="stylesheet">
+	  <link href="../css/navbar.css" rel="stylesheet">
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="../../map-svg/dist/svgMap.js"></script>
+	  <script src="../js/navbar.js"></script>
 </head>
 <body>
-      <div>
+	<!--div class="topnav">
+  		<a class="active" href="./index.html">Home</a>
+  		<a href="#about">About</a>
+  		<a href="#contact">Contact</a>
+  		<input type="text" placeholder="Search..">
+	</div-->
+	<div id="container">
+
+        <div id="navbar">
+            
+            <div class="toggle">
+                
+                <i class="fa fa-bars menu" aria-hidden="true"></i>
+            </div>
+            
+            <div id="menu">
+                <ul>
+                    <li><a href="./index.html"><span>Home</span></a></li>
+                    <li><a href="#">Explore</a></li>
+                    <li><a href="">About Us</a></li>
+					<li><a><input type="text" placeholder="Search.."></a></li>
+                </ul>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script src="https://use.fontawesome.com/28ee112ee3.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $('.menu').click(function () {
+        $('ul').toggleClass('active');
+    })
+    })
+
+    </script>
+      <!--div>
             <nav>
                   <input type="checkbox" id="nav" class="hidden">
                   <label for="nav" class="nav-btn">
@@ -28,16 +71,67 @@
                         </ul>
                   </div>
             </nav>
-      </div>
+      </div-->
       <div>
-            <p id=welcome></p>
-            <button id="done_button" class="learn-more">
-                  <span class="circle" aria-hidden="true">
-                    <span class="icon arrow"></span>
-                  </span>
-                  <span class="button-text">Get started.</span>
-            </button>
+            <p style="text-align: center" id="welcome"></p>
+            
       </div>
       <script src="../js/index.js"></script>
+
+	  <div class="demo-wrapper">
+
+			<!-- Demo GPD -->
+
+			<div class="demo-container">
+			<h2>My visited countires</h2>
+
+			<div id="svgMapGPD"></div>
+			<script src="../../map-svg/data/gdp.js"></script>
+			<script>
+				new svgMap({
+				targetElementID: 'svgMapGPD',
+				data: svgMapDataGPD
+				});
+			</script>
+			</div>
+
+			 <!-- Demo population -->
+
+    <!--div class="demo-container">
+      <h2>Population desity (emojis as flags)</h2>
+
+      <div id="svgMapPopulation"></div>
+      <script src="../data/population.js"></script>
+      <script>
+        new svgMap({
+          targetElementID: 'svgMapPopulation',
+          data: svgMapDataPopulation,
+          flagType: 'emoji'
+        });
+      </script>
+    </div-->
+
+    <!-- Demo person height in German -->
+
+    <!--div class="demo-container">
+      <h2>Average person height (no flags, German language)</h2>
+
+      <div id="svgMapPersonHeight"></div>
+      <script src="../data/personHeight.js"></script>
+      <script src="../local/countriesDE.js"></script>
+      <script>
+        new svgMap({
+          targetElementID: 'svgMapPersonHeight',
+          countryNames: svgMapCountryNamesDE,
+          data: svgMapDataPersonHeight,
+          colorMin: '#FFF0F9',
+          colorMax: '#730B62',
+          hideFlag: true,
+          noDataText: 'Keine Daten vorhanden'
+        });
+      </script>
+    </div-->
+
+  </div>
 </body>
 </html>

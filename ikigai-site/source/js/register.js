@@ -1,20 +1,18 @@
 console.clear();
 
-const loginBtn = document.getElementById('login');
+const signupBtn = document.getElementById('signup');
 
-loginBtn.addEventListener('click', (e) => {
-	let parent = e.target.parentNode.parentNode;
-	console.log("wtf login\n");
-	Array.from(e.target.parentNode.parentNode.classList).find((element) => {
+signupBtn.addEventListener('click', (e) => {
+	let parent = e.target.parentNode;
+	Array.from(e.target.parentNode.classList).find((element) => {
 		if(element !== "slide-up") {
 			parent.classList.add('slide-up')
 		}else{
-			signupBtn.parentNode.classList.add('slide-up')
+			loginBtn.parentNode.parentNode.classList.add('slide-up')
 			parent.classList.remove('slide-up')
 		}
 	});
 });
-
 
 function httpGet(theUrl, user)
 {
@@ -22,7 +20,7 @@ function httpGet(theUrl, user)
 	
 	xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
 	xmlHttp.setRequestHeader('Content-Type', 'application/json');
-    xmlHttp.send(null);
+    xmlHttp.send(JSON.stringify(user));
 	
 	return xmlHttp.responseText;
 }
@@ -35,7 +33,6 @@ function httpPost(theUrl, user)
 	xmlHttp.setRequestHeader('Content-Type', 'application/json');
 	xmlHttp.send(JSON.stringify(user));
 	
-    //xmlHttp.send( [] );
     return xmlHttp.responseText;
 }
 
@@ -66,23 +63,29 @@ var HttpClient = function() {
   var host = 'http://127.0.0.1:8080/api';
 
 
-const login = document.getElementById('login-button');
-const loginUsername = document.getElementById('login-username');
-const loginPassword = document.getElementById('login-pass');
 
-login.addEventListener('click', (e) => {
-	var login_username = loginUsername.value;
-	var login_password = loginPassword.value;
-	
-	if(login_username != null) {
-		var user = {email: login_username, userName: login_username, passWord: login_password};
+const signup = document.getElementById('signup-button');
+const signupUsername = document.getElementById("signup-username");
 
-		let response = httpGet(host + '/user/name/' + login_username);
-		console.log(response);
-			if(response != []) {
-				localStorage.setItem("user", response);
-				window.location.href = '../html/index.html'
+signup.addEventListener('click', (e) => {
+	var signup_username = signupUsername.value;
+	var signup_password = document.getElementById("signup-pass").value;
+	console.log(signup_username+'------\n');
+	if(signup_username != null) {
+		var user = {email: signup_username, userName: signup_username, passWord: signup_password};
+		console.log(JSON.stringify(user));
+		let response = httpPost(host + '/user/register', user);
+		
+		if(response.localeCompare("OK")){
+			console.log("ok");
 		}
+		else console.log("bad");
+		/*let response = httpGet(host + '/user/' + signup_username);
+		console.log(response);
+		if(response == []) {
+			httpPost(host + '/user/register/' + signup_username);
+		}*/
 	}
-	//document.getElementById('login-username').value = "";
+	document.getElementById('signup-username').value = "";
+	document.getElementById('signup-pass').value = "";
 });
