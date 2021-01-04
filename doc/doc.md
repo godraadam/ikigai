@@ -1,3 +1,5 @@
+>Software Engineering project, documentation
+
 # Introduction
 
 ## ikigai
@@ -7,7 +9,8 @@
 > _japanese for a reason to live_
 
 ...travelling is ours  
-\~ the creators: **i.k.**- creative owner, **g.a.**- the developer
+\~ the creators: **Benedek Balazs and Godra Adam**
+*for UTCN @2020*
 
 **a scratch-map mobile app made for a university project**
 
@@ -149,7 +152,14 @@ Communication with the server is carried out via JSON represented objects
 
   > Consits of POJOs representing the entities participant in the application: users, formalized in the `User` class and visits, formalized in the `Visit` class. They together form a many-to-many relationship, with the 'owner' side being a user since visited countries belong to a user, while users don't belong to any country. Both of these classes will inherit from a base class named `BaseModel`, containing a single attribute called `id` which is of type Long and will serve as a unique identifier as well as primary key used by the database for both the `users` and `visits` tables. Finally these classes are placed in the model `ikigai.server.model` package
 <div style="text-align:center">
-<img src = "./cd4.png">
+<img src = "./cd4.png"><br>
+UML model diagram of the model package
+<img src = "./basemodel.svg"><br>
+Code implementation of the BaseModel superclass
+<img src = "./user.svg"><br>
+Code implementation of the User class
+<img src = "./visit.svg"><br>
+Code implementation of the Visit class
 </div>
 
 ## Repository Layer
@@ -160,6 +170,24 @@ Communication with the server is carried out via JSON represented objects
 <img src = "./repo.svg">
 </div>
 
+## API Layer
+
+> Again, as with the repository layer, the heavy work is passed on to the the Spring framework. It comes with a 'built-in' web server, namely Tomcat, which is automatically started with the application, and the web app is automatically deployed to the web server. We only to need to specify the REST API endpoints as functions denoted with the proper annotations, within a class marked as `@RestController`. These controller classes form the `ikigai.server.api.resource` repository. There is another repository within `ikigai.server.api`, the `assembler` package. This package contains classes responsible for the conversion between model and data transfer objects (see above).
+
+<div style="text-align:center">
+<img src = "./api.svg">
+</div>
+
+## Service Layer
+> The service layer stands as a middle ground in between the API and Repository layers. It serves as yet another level of abstraction and as such decreases tight coupledness (meaning changes in the repository layer will no longer affect the functionality of the API). This package (`ikigai.server.service`) comprises two classes, one for each identified entity, UserService and VisitService. These classes implement data acces as well as any additional functionality more complex than CRUD operations. In the case of UserService such functionality would be to register users(check if eamil and username not taken, hash password, then save in database), or to save a newly visited country for any given user. 
 
 
+# Further improvements
 
+The application should come armed with a feature to offer personalized recommendations for the user based on his/her preferences in the past(Markov Decision Process based recommendation system) or on the preferences of likeminded users of the platforms(Collaborative Filtering recommendation system).
+
+# Bibliography
+[REST Controllers in Java using Spring](https://www.baeldung.com/category/rest/)
+[Spring Data JPA](https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa)
+[Dependency Injection in Spring](https://www.baeldung.com/inversion-control-and-dependency-injection-in-spring)
+[MDP based recommendation system](https://www.jmlr.org/papers/volume6/shani05a/shani05a.pdf)
