@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>login/signup form animation</title>
+  <link rel="stylesheet" href="../css/login.css">
+
+</head>
+<body>
+
+<section>
+    <div class = "container">
+        <div class="user signupBx">
+            <!--div class="formBx">
+                <form (ngSubmit)="onSubmit()" [formGroup]="userForm" action = "">
+                    <h2>Create an account</h2>
+                    
+                    <input type="text" id = "userName" name="" placeholder="Username" />
+                    
+                    <input type="email" id="email" placeholder="Email Address" class="form-control" formControlName="email" required/>
+                    <div *ngIf="formErrors.email" class="alert alert-danger">{{formErrors.email}}</div>
+                    
+                    <input type="password" id="password" class="form-control" formControlName="password" placeholder="Create Password" required/-->
+                    <!--div *ngIf="formErrors.password" class="alert alert-danger">{{formErrors.password}}</div-->
+                    <!--input type="password" id="reEnteredPassword" class="form-control" formControlName="reEnteredPassword" placeholder="Confirm Password" required/>
+                    <div *ngIf="formErrors.reEnteredPassword" class="alert alert-danger">{{formErrors.reEnteredPassword}}</div>
+                    <input type="submit" name="" value="Sign Up" [disabled]="!userForm.valid"/>
+                    <p class="signup">
+                        Already have an account ?
+                        <a href="./login.html" onclick="">Sign in.</a>
+                    </p>
+                </form>
+            </div-->
+			<div class="signup">
+				<h2 class="form-title" id="signup">Sign up</h2>
+				<div class="form-holder">
+					<input id="signup-username" type="text" class="input" placeholder="Name" />
+					<input id="signup-pass" type="password" class="input" placeholder="Password"/>
+				</div>
+				<button id="signup-button" class="submit-btn" onclick="document.getElementById('signup-pass').value =''">Sign up</button>
+				<p class="signup">
+                    Already have an account ?
+                    <a href="./login.html" onclick="">Sign in.</a>
+                </p>
+			</div>
+            <div class="imgBx"><img src="https://i2.wp.com/brightestyoungthings.com/wp-content/uploads/2018/06/earth-gif-13.gif?quality=100&ssl=1" alt="" /></div>
+        </div>
+    </div>
+</section>
+
+<!--script>
+    const toggleForm = () => {
+        const container = document.querySelector('.container');
+        container.classList.toggle('active');
+    };
+</script-->
+
+<!-- partial -->
+  <script  src="../js/login.js"></script>
+
+</body>
+</html>
