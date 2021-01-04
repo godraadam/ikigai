@@ -76,12 +76,13 @@ login.addEventListener('click', (e) => {
 	
 	if(login_username != null) {
 		var user = {email: login_username, userName: login_username, passWord: login_password};
-
+		console.log(login_username);
 		let response = httpGet(host + '/user/name/' + login_username);
 		console.log(response);
 			if(response != []) {
 				localStorage.setItem("user", response);
-				window.location.href = '../html/index.html'
+				console.log(JSON.parse(localStorage.getItem("user")));
+				//window.location.href = '../html/index.html'
 		}
 	}
 	//document.getElementById('login-username').value = "";
