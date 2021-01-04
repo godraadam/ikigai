@@ -1,0 +1,49 @@
+<html lang="en">
+<head>
+    <title>Main page</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/button.css">
+</head>
+<body>
+    <nav>
+      <input type="checkbox" id="nav" class="hidden">
+      <label for="nav" class="nav-btn">
+            <i></i>
+            <i></i>
+            <i></i>
+      </label>
+      <div class="nav-wrapper">
+            <ul>
+                  <li><a href="./index.html">Home</a></li>
+                  <li><a href="./done.html">Done list</a></li>
+                  <li><a href="./main.html">Get tasks</a></li>
+                  <li><a href="./login.html">Logout</a></li>
+            </ul>
+      </div>
+  </nav>
+    <div id = maindiv>
+      <div id='image' class="container">
+        <div id ='category' class="overlay">
+          <div class = "descriptions"></div>
+          <div class = "descriptions head">
+            <p id="title"></p>
+            <hr>
+          </div>
+          <div class = "descriptions price">
+            <p id="description" class="old"></p>
+          </div>
+          <div class="descriptions cart">
+            <i class="fa fa-shopping-cart"></i>
+              <button id="done_button" class="learn-more">
+                <span class="circle" aria-hidden="true">
+                  <span class="icon arrow"></span>
+                </span>
+                <span class="button-text">Done</span>
+              </button>
+          </div>
+      </div>
+      </div>
+    </div>
+    <script src="../js/main.js"></script>
+</body>
+</html>
