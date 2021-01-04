@@ -10,7 +10,6 @@
 	  <link href="../css/navbar.css" rel="stylesheet">
 	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <script src="../../map-svg/dist/svgMap.js"></script>
-	  <script src="../js/navbar.js"></script>
 </head>
 <body>
 	<!--div class="topnav">
@@ -32,8 +31,9 @@
                 <ul>
                     <li><a href="./index.html"><span>Home</span></a></li>
                     <li><a href="#">Explore</a></li>
-                    <li><a href="">About Us</a></li>
 					<li><a><input type="text" placeholder="Search.."></a></li>
+					<li><a href="">About Us</a></li>
+					<li><a href="./login.html">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -97,19 +97,26 @@
 
 			 <!-- Demo population -->
 
-    <!--div class="demo-container">
-      <h2>Population desity (emojis as flags)</h2>
+    <div class="demo-container">
+      <h2>PROBEEEEE</h2>
 
       <div id="svgMapPopulation"></div>
-      <script src="../data/population.js"></script>
-      <script>
+      <script src="../js/visits.js"></script>
+
+	  <script>
+				new svgMap({
+				targetElementID: 'svgMapGPD',
+				data: svgMapDataGPD
+				});
+			</script>
+      <!--script>
         new svgMap({
           targetElementID: 'svgMapPopulation',
           data: svgMapDataPopulation,
           flagType: 'emoji'
         });
-      </script>
-    </div-->
+      </script-->
+    </div>
 
     <!-- Demo person height in German -->
 
