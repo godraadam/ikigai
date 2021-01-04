@@ -62,16 +62,19 @@ This application is meant to connect travel-minded people from around the world.
 
 # Analysis
 
-## Backend
+<div style="text-align:center">
+<img src = "./ucd.png">
+Communication with the server is carried out via JSON represented objects
+</div>
 
-### The domain layer
+## The domain layer
 
 > The domain layer (model layer) will contain POJOs representing entities participating in the application. They are as follows:
 
 - **User**: Represents the user using the application. Identified by: `id` (a unique identifier used by the relational database) `username`, `email`. Will contain a `list` of **Visit**s (see below)
 - **Visit**: Represents a many-to-many relationship between users and visited countries. That is, a user can visit multiple countries and one country could be visited by multiple users. Associated data members are: `date` and a remark which contains a short description of the visit. Countries themselves are represented as `String` as no additional data is associated to them.
 
-### API layer
+## API layer
 
 > Involves identifying the satisfactory and necessary API endpoints to efficiently communicate with the server. Possible use cases:
 
@@ -88,7 +91,7 @@ This application is meant to connect travel-minded people from around the world.
 - `GET`: `/api/visit/{name}` --get all visits of a user
 - `GET`: `/api/user/name/{name}` --find user by name
 
-### Data layer
+## Data access layer
 
 >  The server will persist registered users, and their visited countries. The database will have the following tables:
 
@@ -144,6 +147,19 @@ This application is meant to connect travel-minded people from around the world.
 
   ## Domain Layer
 
-  > Consits of POJOs representing the entities participant in the application: Users and Visits
+  > Consits of POJOs representing the entities participant in the application: users, formalized in the `User` class and visits, formalized in the `Visit` class. They together form a many-to-many relationship, with the 'owner' side being a user since visited countries belong to a user, while users don't belong to any country. Both of these classes will inherit from a base class named `BaseModel`, containing a single attribute called `id` which is of type Long and will serve as a unique identifier as well as primary key used by the database for both the `users` and `visits` tables. Finally these classes are placed in the model `ikigai.server.model` package
+<div style="text-align:center">
+<img src = "./cd4.png">
+</div>
+
+## Repository Layer
+
+>The bulk of data access boiler plate code is handled automagically by Spring framework's data JPA library. Persisted entities and their columns are marked by annotations and data acces code is generated from it, in the background. For the database implementation, `MySql80` is used for its tested performance and reliability, though something more lightweight such as `MongoDB` could do the job just as well. As far as implementation goes, we simply extend the generic `CrudRepository<M, ID>` interface provided by Spring with the corresponding interfaces, that being `UserRepository<User, Long>` and `VisitRepository<Visit, Long>` add any specific query methods(if needed) and then the rest of the implementation is automatically generated upon the start of the application.
+
+<div style="text-align:center">
+<img src = "./repo.svg">
+</div>
+
+
 
 
