@@ -2274,6 +2274,8 @@
 		colorMax: '#CC0033',
 		colorMin: '#FFE5D9',
 		colorNoData: '#E2E2E2',
+		colorYes: '#40E0D0',
+		colorNo: '#DCDCDC',
 	
 		// The flag type can be 'image' or 'emoji'
 		flagType: 'image',
@@ -2566,8 +2568,30 @@
 	  ZM: 'Zambia',
 	  ZW: 'Zimbabwe'
 	};
-	// Apply the data to the map
+
 	svgMap.prototype.applyData = function (data) {
+	
+		var yes = null;
+		var no = null;
+
+		// Loop through countries and set colors
+		Object.keys(this.countries).forEach(function (countryID) {
+		  var element = document.getElementById(this.id + '-map-country-' + countryID);
+		  if (!element) {
+			return;
+		  }
+		  if (!data.values[countryID]) {
+			element.setAttribute('fill', this.options.colorNoData);
+			return;
+		  }
+		  if(data.values[countryID][data.applyData] == 'Yes')
+				  element.setAttribute('fill', '#40E0D0');
+		  else element.setAttribute('fill', '#DCDCDC');
+		}.bind(this));
+	  
+	  };
+	// Apply the data to the map
+	/*svgMap.prototype.applyData = function (data) {
 	
 	  var max = null;
 	  var min = null;
@@ -2600,7 +2624,7 @@
 		element.setAttribute('fill', color);
 	  }.bind(this));
 	
-	};
+	};*/
 	svgMap.prototype.emojiFlags = {
 	  AF: '🇦🇫',
 	  AX: '🇦🇽',
