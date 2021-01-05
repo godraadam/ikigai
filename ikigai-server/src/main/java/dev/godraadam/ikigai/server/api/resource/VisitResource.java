@@ -21,7 +21,7 @@ public class VisitResource {
     private VisitAssembler visitAssembler;
 
     @GetMapping("api/visit/{username}")
-    public List<VisitDTO> getVisitsForUser(@PathVariable String userName) {
+    public List<VisitDTO> getVisitsForUser(@PathVariable("username") String userName) {
         return visitAssembler.createDTOList(userService.getVisitsForUser(userName));
     }
     

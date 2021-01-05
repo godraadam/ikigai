@@ -16,7 +16,7 @@ import dev.godraadam.ikigai.android.model.Visit;
 public class DatabaseHelper extends OrmLiteSqliteOpenHelper {
     private static final String TAG = DatabaseHelper.class.getSimpleName();
     private static final String DATABASE_NAME = "ikigai.db";
-    private static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 5;
 
     private static DatabaseHelper instance;
 

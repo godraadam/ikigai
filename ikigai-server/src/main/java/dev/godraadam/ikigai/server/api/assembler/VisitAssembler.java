@@ -20,7 +20,7 @@ public class VisitAssembler implements BaseAssembler<Visit, VisitDTO> {
         VisitDTO visitDTO = new VisitDTO();
         visitDTO.setId(m.getId());
         visitDTO.setCountry(m.getCountry());
-        visitDTO.setDate(new SimpleDateFormat("dd/MM/yyyy").format(m.getDate()));
+        visitDTO.setDate(new SimpleDateFormat("MMM d, yyyy HH:mm:ss").format(m.getDate()));
         visitDTO.setDescription(m.getDescription());
         return visitDTO;
     }
@@ -41,7 +41,7 @@ public class VisitAssembler implements BaseAssembler<Visit, VisitDTO> {
             m.setCountry(d.getCountry());
             m.setDescription(d.getDescription());
             try {
-                m.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(d.getDate()));
+                m.setDate(new SimpleDateFormat("MMM d, yyyy HH:mm:ss").parse(d.getDate()));
             } catch (ParseException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();

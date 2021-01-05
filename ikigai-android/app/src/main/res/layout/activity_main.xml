@@ -4,7 +4,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="dev.godraadam.ikigai.android.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Search"/>
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="36dp" />
+    </LinearLayout>
+
 
     <com.otaliastudios.zoom.ZoomLayout
         android:id="@+id/zoom_layout"
@@ -17,5 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:vector="@drawable/ic_world_map_large"/>
+
+
     </com.otaliastudios.zoom.ZoomLayout>
+
 </LinearLayout>

@@ -1,2 +1,3 @@
 include ':app'
-rootProject.name = "ikigai"
+include ":ikigai-common"
+project(":ikigai-common").projectDir = file("../ikigai-common")

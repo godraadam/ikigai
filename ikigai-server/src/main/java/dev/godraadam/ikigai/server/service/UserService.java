@@ -35,8 +35,9 @@ public class UserService extends BaseService<User> {
         if (visit == null || user == null) {
             return null;
         }
-        user.getVisits().add(visit);
-        visitRepository.save(visit);
+        Visit savedVisit = visitRepository.save(visit);
+        System.out.println("Here");
+        user.getVisits().add(savedVisit);
         return userRepository.save(user);
     }
 

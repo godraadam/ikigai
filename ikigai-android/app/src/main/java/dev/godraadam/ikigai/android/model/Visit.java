@@ -1,19 +1,24 @@
 package dev.godraadam.ikigai.android.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.j256.ormlite.field.DatabaseField;
 
 import java.util.Date;
 
 public class Visit extends BaseModel {
 
-    @DatabaseField(canBeNull = false)
+    @Expose
+    @SerializedName("country")
+    @DatabaseField(canBeNull = true)
     private String country;
 
+    @Expose
+    @SerializedName("date")
     private Date date;
 
-    @DatabaseField(canBeNull = false)
-    private String dateString;
-
+    @Expose
+    @SerializedName("description")
     @DatabaseField
     private String comment;
 
@@ -26,7 +31,6 @@ public class Visit extends BaseModel {
     public Visit(String country) {
         this.country = country;
         date = new Date();
-        dateString = date.toString();
     }
 
     public void setCountry(String country) {
