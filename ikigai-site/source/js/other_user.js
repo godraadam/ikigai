@@ -1,7 +1,7 @@
 console.clear();
 
-var welcome_text = document.getElementById("welcome");
-var user = JSON.parse(localStorage.getItem("user"));
+var welcome_text = document.getElementById("namesmap");
+var user = JSON.parse(localStorage.getItem("search_user"));
 var get_started_button = document.getElementById("done_button");
 var svgMapDataGPD = {
 	data: {
@@ -30,7 +30,7 @@ var svgMapDataGPD = {
 	  AG: {visited: "No", date: "-", description: "-"},
 	  AR: {visited: "No", date: "-", description: "-"},
 	  AM: {visited: "No", date: "-", description: "-"},
-	  AU: {visited: "Yes", date: "18/08/2018", description: "Don't get close to kangoroos!"},
+	  AU: {visited: "Yes", date: "-", description: "-"},
 	  AT: {visited: "No", date: "-", description: "-"},
 	  AZ: {visited: "No", date: "-", description: "-"},
 	  BS: {visited: "No", date: "-", description: "-"},
@@ -96,7 +96,7 @@ var svgMapDataGPD = {
 	  HT: {visited: "No", date: "-", description: "-"},
 	  HN: {visited: "No", date: "-", description: "-"},
 	  HK: {visited: "No", date: "-", description: "-"},
-	  HU: {visited: "Yes", date: "11/09/2001", description: "Such a nice country."},
+	  HU: {visited: "Yes", date: "-", description: "-"},
 	  IS: {visited: "No", date: "-", description: "-"},
 	  IN: {visited: "No", date: "-", description: "-"},
 	  ID: {visited: "No", date: "-", description: "-"},
@@ -161,8 +161,8 @@ var svgMapDataGPD = {
 	  PT: {visited: "No", date: "-", description: "-"},
 	  PR: {visited: "No", date: "-", description: "-"},
 	  QA: {visited: "No", date: "-", description: "-"},
-	  RO: {visited: "Yes", date: "always", description: "Home, sweet home."},
-	  RU: {visited: "Yes", date: "12/12/2017", description: "Davai, davai"},
+	  RO: {visited: "Yes", date: "-", description: "-"},
+	  RU: {visited: "Yes", date: "-", description: "-"},
 	  RW: {visited: "No", date: "-", description: "-"},
 	  KN: {visited: "No", date: "-", description: "-"},
 	  LC: {visited: "No", date: "-", description: "-"},
@@ -412,7 +412,7 @@ var stringMapping = new Map([
 	['ZW', svgMapDataGPD.values.ZW]])
 
 
-welcome_text.innerHTML = "Welcome " + user.userName + ".";
+welcome_text.innerHTML = user.userName + "'s map.";
 
 
 function httpGet(theUrl, entries)
@@ -459,68 +459,4 @@ var HttpClient = function() {
 	  anHttpRequest.send( null );
   }
 }
-  
-var client = new HttpClient();
-var host = 'http://127.0.0.1:8080/api';
-
-const button = document.getElementById('add-button');
-const country = document.getElementById('country');
-const description = document.getElementById("description");
-const searchButton = document.getElementById("searchButton");
-const searchedUser = document.getElementById("searchBar");
-
-function refreshMap(){
-
-	if(user != null) {
-		let responseGet = httpGet(host + '/user/name/' + user.userName);
-		//console.log(responseGet);
-		var object = JSON.parse(responseGet);
-		var str = object.visits.reverse()[0].country;
-		stringMapping.get(str).visited = "Yes";
-
-
-		document.getElementById('description').value = svgMapDataGPD.values.RU.visited;
-	}
-}
-if(button!=null)
-button.addEventListener('click', (e) => {
-	var country_var = country.value;
-	var description_var = description.value;
-	var today = new Date();
-	var dd = String(today.getDate()).padStart(2, '0');
-	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-	var yyyy = today.getFullYear();
-	today = mm + '/' + dd + '/' + yyyy;
-	
-
-
-	//if(date_var[2]!="/" && date_var[5]!="/" && date_var.length != 10){
-		var entries = {country: country_var, description: description_var, date: today};
-		let response = httpPost(host + '/user/visit/' + user.userName, entries);
-
-		if(response.localeCompare("OK")){
-			console.log("ok");
-			refreshMap();
-		}
-		else console.log("bad");
-		
-	//}
-	//document.getElementById('start').value = "";
-	//document.getElementById('description').value = "";
-});
-if(searchButton!=null)
-searchButton.addEventListener('click', (e) => {
-	var search_username = searchedUser.value;
-	document.getElementById('description').value = "--"+search_username;
-	if(search_username != null) {
-		console.log(search_username);
-		let responseSearch = httpGet(host + '/user/name/' + search_username);
-		console.log(responseSearch);
-			if(response != []) {
-				localStorage.setItem("search_user", responseSearch);
-				window.location.href = '../html/other_user.html';
-		}
-	}
-	//document.getElementById('login-username').value = "";
-});
 

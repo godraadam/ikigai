@@ -5,6 +5,7 @@ body {
 	color: #DDD;
 	background: #333;
 	padding: 0;
+	text-align: center;
 	margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -132,7 +133,9 @@ section .container .user .formBx form .signup a {
 section .container .signinBx {
   pointer-events: initial;
 }
-
+.form-holder {
+	text-align: center;
+}
 section .container .signinBx .formBx {
   left: 0%;
 }

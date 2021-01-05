@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Minimal Responsive Navigation | HTML & CSS</title>
+		<link rel="stylesheet" href="../css/other_user.css" />
+		<link href="../../map-svg/dist/svgMap.css" rel="stylesheet" />
+		<link href="../css/navbar.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link
+		rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<!--script src="../../map-svg/dist/svgMap.js"></script-->
+		<script src="../js/svgMap.js"></script>
+		<script src="https://use.fontawesome.com/28ee112ee3.js"></script>
+		<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function () {
+			$(".menu").click(function () {
+			$("ul").toggleClass("active");
+			});
+		});
+		</script>
+		<!--script src="../js/index.js"></script-->
+  	</head>
+  	<body>
+		<div id="container">
+			<div id="navbar">
+				<div class="toggle">
+					<i class="fa fa-bars menu" aria-hidden="true"></i>
+				</div>
+				<div id="menu">
+					<ul>
+						<li><a href="./index.html"><span>Home</span></a></li>
+						<li><a href="#">Explore</a></li>
+						<li><a>
+							<form class="example" style="margin:auto;max-width:80%">
+								<input id = "searchBar" type="text" placeholder="Search.." name="search">
+								<button id = "searchBtn" type="submit"><i class="fa fa-search"></i></button>
+							</form></a>
+						</li>
+						<li><a href="">About Us</a></li>
+						<li><a href="./login.html">Logout</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+<div><p style="text-align: center" id="welcome"></p></div>
+<h2 id = "namesmap"></h2>
+<div id = "formMap">
+    
+
+	<div id = "map-div">
+    	<div class="demo-wrapper">
+      		<div class="demo-container">
+        		
+
+        		<div id="svgMapGPD"></div>
+				<script src="../js/other_user.js"></script>
+				<script>
+					new svgMap({
+						targetElementID: "svgMapGPD",
+						data: svgMapDataGPD,
+					});
+				</script>
+      		</div>
+		</div>
+	</div>
+    
+    </div>
+ </div>
+  </body>
+</html>

@@ -11,7 +11,7 @@ body {
   
   .demo-wrapper {
 	box-sizing: border-box;
-	width: 850px;
+	width: 900px;
 	height:200px;
 	max-width: calc(100% - 30px);
 	/*margin: auto;*/
@@ -58,34 +58,16 @@ form.example #searchBar {
 	display: table;
   }
 
-   
-  #visited-form{
-	margin-top: 8%;
-	margin-left: -5%;
-	width: 25%;
-    float: left;
-}
   
   #map-div{
-	margin-left: 2%;
-	width: 70%;
-    float: left;
+	margin-left: 20%;
+	width: 90%;
 }
   h2 {
 	text-align: center;
 	font-size: 32px;
 	margin: 0 0 25px;
 	font-weight: normal;
-  }
- #country, #description, select {
-	width: 100%;
-	height: 30%;
-	padding: 12px 20px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
   }
   
 

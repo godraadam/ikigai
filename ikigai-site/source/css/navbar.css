@@ -19,6 +19,7 @@ ul {
     width: 100%;
     margin: 0 auto;
 	padding: 0;
+	margin-left: 9px;
 	text-align:center;
     
     
@@ -28,7 +29,7 @@ ul li {
     
     list-style-type: none;
     display: inline-block;
-    padding: 20px;
+    padding: 10px;
     transition: .5s;
 	background-color: #333;
 	color: white;
@@ -68,13 +69,7 @@ span:hover {
     font-size: 30px;
     display: none;
 }
-ul li input[type=text] {
-	background-color: #333;
-	color: white;
-	border-radius: 8px;
-	border: 2px solid turquoise;
-	
-  }
+
 @media (max-width:768px) {
 
     .toggle {
